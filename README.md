@@ -16,3 +16,5 @@ All branches build from nginx:alpine. Port 80 serves a static text marker at `/`
 A direct BuildKit build verifies builder and registry behavior; the full Polyer build/cancellation flow requires deploying this repository through its Git source interface. No secrets should be placed in files, build arguments, logs, or this repository's Git configuration.
 
 The 120-second wait leaves time to verify cancellation cleanup within 15 seconds, before natural completion. This is an idle sleep, not a load test.
+
+The slow build declares and consumes POLYER_DEPLOYMENT_ID so each deployment executes its own uncached sleep step. Its output marker includes that non-secret deployment ID.
