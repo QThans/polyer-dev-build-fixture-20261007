@@ -6,10 +6,10 @@ This repository exercises Polyer deployment builds on a dedicated Hetzner test n
 
 | Branch | Purpose | Expected HTTP body |
 | --- | --- | --- |
-| main | Successful v1 build | polyer-b1-v1 |
-| v2 | Successful v2 build and rollback comparison | polyer-b1-v2 |
-| fail-build | Intentional build failure: RUN exits 23 | Must never replace the healthy deployment |
-| slow-build | Low-load 40-second build wait for cancellation | Must never replace the healthy deployment when cancelled |
+| main / codex/b1-v1 | Successful v1 build | polyer-b1-v1 |
+| codex/b1-v2 | Successful v2 build and rollback comparison | polyer-b1-v2 |
+| codex/b1-fail-build | Intentional build failure: RUN exits 23 | Must never replace the healthy deployment |
+| codex/b1-slow-build | Low-load 40-second build wait for cancellation | Must never replace the healthy deployment when cancelled |
 
 All branches build from nginx:alpine. Port 80 serves a static text marker at `/` and `/index.html`. Only the base image requires a download. The slow branch sleeps instead of generating CPU, disk, or network load.
 
