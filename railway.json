@@ -1,0 +1,11 @@
+{
+  "build": {
+    "builder": "RAILPACK",
+    "buildCommand": "node build.mjs"
+  },
+  "deploy": {
+    "startCommand": "node server.mjs",
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 30
+  }
+}
